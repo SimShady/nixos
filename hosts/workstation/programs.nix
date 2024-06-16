@@ -17,4 +17,10 @@
   programs.ssh = {
     startAgent = true;
   };
+
+  programs.bash.shellAliases = {
+    l = "ls -alh";
+    ll = "ls -la";
+    ls = "ls --color=tty";
+  };
 }
