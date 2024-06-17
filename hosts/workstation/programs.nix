@@ -22,5 +22,6 @@
     l = "ls -alh";
     ll = "ls -la";
     ls = "ls --color=tty";
+    code = "codium";
   };
 }
