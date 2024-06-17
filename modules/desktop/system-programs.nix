@@ -3,7 +3,7 @@
     vesktop
     docker
     element-desktop
-    mathematica
+    # mathematica
     (vscode-with-extensions.override {
       vscode = vscodium;
       vscodeExtensions = with vscode-extensions; [

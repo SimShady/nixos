@@ -43,8 +43,5 @@
     "github.com" = {
       identityFile = "/home/simon/.ssh/id_github_private";
     };
-    "*" = {
-      extraOptions.AddKeysToAgent = "yes";
-    };
   };
 }
