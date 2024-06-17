@@ -2,6 +2,8 @@
   environment.systemPackages = with pkgs; [
     vesktop
     docker
+    element-desktop
+    mathematica
     (vscode-with-extensions.override {
       vscode = vscodium;
       vscodeExtensions = with vscode-extensions; [
