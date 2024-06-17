@@ -25,9 +25,6 @@ in {
       default = "$y$j9T$33a2GN1EBs3bltnz60I7h0$/LJc/yVogLQ61cJGgCEBpCdoM6LnqkUJvXvG5fwarr1";
     };
     home-manager = {
-      modulePath = mkOption {
-        type = path;
-      };
       customHomePath = mkOption {
         type = path;
       };

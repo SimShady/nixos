@@ -10,7 +10,6 @@
     enable = true;
     hostName = "workstation";
     home-manager = {
-      modulePath = inputs.home-manager.nixosModules.default;
       customHomePath = ./home.nix;
       extraSpecialArgs = { inherit inputs; };
     };
