@@ -3,6 +3,7 @@
     [
       ./hardware-configuration.nix
       ./custom-hardware-configuration.nix
+      ./system-programs.nix
       ../../modules/desktop/default.nix
     ];
 
