@@ -1,14 +1,15 @@
 { pkgs, ... }: {
   imports = [
     ./hardware-configuration.nix
-    ./networking.nix # generated at runtime by nixos-infect    
+    ./networking.nix # generated at runtime by nixos-infect
     ./services/systemd.nix
-    ./services/docker.nix 
+    ./services/docker.nix
     ./services/acme.nix
     ./services/nginx.nix
     ./services/node-exporter.nix
     ./services/prometheus.nix
     ./services/grafana.nix
+    ./services/matrix-conduit.nix
     ./web/babovic.nix
     ./web/playitloud.nix
   ];
@@ -23,7 +24,7 @@
   services.openssh.settings.PermitRootLogin = "no";
   security.sudo.enable = true;
 
-  users.groups.deploybots = {};  
+  users.groups.deploybots = {};
 
   users.users.simon = {
     isNormalUser = true;
