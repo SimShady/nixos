@@ -7,7 +7,8 @@
       vscode = vscodium;
       vscodeExtensions = with vscode-extensions; [
         jnoortheen.nix-ide
-        vscode-icons-team.vscode-icons      
+        vscode-icons-team.vscode-icons
+        james-yu.latex-workshop
       ];
     })
   ];

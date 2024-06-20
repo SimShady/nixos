@@ -4,6 +4,10 @@
   home.username = "simon";
   home.homeDirectory = "/home/simon";
 
+  home.packages = with pkgs; [
+    texlive.combined.scheme-full
+  ];
+
   programs.git = {
     enable = true;
     package = pkgs.gitAndTools.gitFull;

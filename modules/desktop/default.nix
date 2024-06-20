@@ -9,6 +9,7 @@ in {
     ./display.nix
     ./audio.nix
     ./system-programs.nix
+    ./vpn.nix
   ];
 
   options.simon.desktop = with types; {
