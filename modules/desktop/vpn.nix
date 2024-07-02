@@ -23,6 +23,40 @@
   #   };
   # };
 
+  # systemd.network = {
+  #   enable = true;
+  #   netdevs = {
+  #     airlab = {
+  #       netdevConfig = {
+  #         Kind = "wireguard";
+  #         Name = "airlab";
+  #         Description = "Wireguard device config for airlab vpn";
+  #         MTUBytes = "1420";
+  #       };
+  #       wireguardConfig.PrivateKeyFile = "/home/simon/vpn-keys/airlab/private";
+  #       wireguardPeers = [{
+  #         PublicKey = "IJyjCwYBeEglglA77zZNfaOthB8Gpyy2TnwVw39Pj2k=";
+  #         PresharedKeyFile = "/home/simon/vpn-keys/airlab/preshared";
+  #         AllowedIPs = [ "0.0.0.0/0" "::/0" ];
+  #         Endpoint = "vpn.robo4you.at:51820";
+  #       }];
+  #     };
+  #   };
+  #   networks = {
+  #     airlab = {
+  #       address = [ "172.17.0.35/24" ];
+  #       dns = [ "172.16.0.1" ];
+  #       linkConfig.ActivationPolicy = "manual";
+  #       name = "airlab";
+        
+  #       networkConfig = {
+  #         Description = "Wireguard network config for airlab vpn";
+  #         DNSOverTLS = "opportunistic";
+  #       };
+  #     };
+  #   };
+  # };
+
   networking.openconnect = {
     package = pkgs.openconnect;
     interfaces = {
@@ -50,8 +84,8 @@
   };
 
   programs.bash.shellAliases = {
-    "airlab-up" = "sudo systemctl start wg-quick-airlab.service";
-    "airlab-down" = "sudo systemctl stop wg-quick-airlab.service";
+    # "airlab-up" = "sudo systemctl start wg-quick-airlab.service";
+    # "airlab-down" = "sudo systemctl stop wg-quick-airlab.service";
     "tu-down" = "sudo systemctl stop openconnect-tuwien.service";
     "tu-up" = "sudo systemctl stop openconnect-tuwien-all.service && sudo systemctl start openconnect-tuwien.service";
     "tuall-down" = "sudo systemctl stop openconnect-tuwien-all.service";
