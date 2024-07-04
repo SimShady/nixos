@@ -11,6 +11,7 @@
         james-yu.latex-workshop
       ];
     })
+    gnome.gnome-boxes
   ];
   virtualisation.docker.enable = true;
 
@@ -25,5 +26,21 @@
     ll = "ls -la";
     ls = "ls --color=tty";
     code = "codium";
+  };
+
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu = {
+      package = pkgs.qemu_kvm;
+      runAsRoot = true;
+      swtpm.enable = true;
+      ovmf = {
+        enable = true;
+        packages = [(pkgs.OVMF.override {
+          secureBoot = true;
+          tpmSupport = true;
+        }).fd];
+      };
+    };
   };
 }
