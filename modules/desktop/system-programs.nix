@@ -12,7 +12,6 @@
       ];
     })
     gnome.gnome-boxes
-    hypnotix
   ];
   virtualisation.docker.enable = true;
 
