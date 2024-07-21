@@ -9,9 +9,13 @@
         jnoortheen.nix-ide
         vscode-icons-team.vscode-icons
         james-yu.latex-workshop
+        rust-lang.rust-analyzer
       ];
     })
     gnome.gnome-boxes
+    gcc
+    rustc
+    cargo
   ];
   virtualisation.docker.enable = true;
 
