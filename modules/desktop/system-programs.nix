@@ -10,6 +10,7 @@
         vscode-icons-team.vscode-icons
         james-yu.latex-workshop
         rust-lang.rust-analyzer
+        vadimcn.vscode-lldb
       ];
     })
     gnome.gnome-boxes
