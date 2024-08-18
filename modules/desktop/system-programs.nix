@@ -20,8 +20,8 @@
     gcc
     rustc
     cargo
-    (python3.withPackages (python-pkgs: [
-      python-pkgs.graph-tool
+    (python3.withPackages (python-pkgs: with python-pkgs; [
+      graph-tool
     ]))
   ];
   virtualisation.docker.enable = true;
