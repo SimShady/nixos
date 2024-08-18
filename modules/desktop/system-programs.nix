@@ -9,6 +9,7 @@
         jnoortheen.nix-ide
         vscode-icons-team.vscode-icons
         james-yu.latex-workshop
+        ms-python.python
         rust-lang.rust-analyzer
         vadimcn.vscode-lldb
       ];
