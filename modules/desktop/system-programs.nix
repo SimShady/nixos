@@ -12,6 +12,8 @@
         ms-python.python
         rust-lang.rust-analyzer
         vadimcn.vscode-lldb
+        mechatroner.rainbow-csv
+        grapecity.gc-excelviewer
       ];
     })
     gnome.gnome-boxes
