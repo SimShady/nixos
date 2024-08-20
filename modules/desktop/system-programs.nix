@@ -17,13 +17,21 @@
       ];
     })
     gnome.gnome-boxes
-    gcc
+    gcc_multi
     rustc
     cargo
     (python3.withPackages (python-pkgs: with python-pkgs; [
       graph-tool
+      pip
+      scikit-network
     ]))
   ];
+
+  environment.variables = {
+    # For numpy to work in python envs
+    LD_LIBRARY_PATH = "${pkgs.stdenv.cc.cc.lib}/lib";
+  };
+
   virtualisation.docker.enable = true;
 
   programs.firefox.enable = true;

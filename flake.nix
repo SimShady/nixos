@@ -23,6 +23,11 @@
       modules = [
         (import ./hosts/workstation/configuration.nix)
         inputs.home-manager.nixosModules.default
+        {
+          nixpkgs.overlays = [
+            (import ./packages)
+          ];
+        }
       ];
     };
     nixosConfigurations.babovicat = nixpkgs.lib.nixosSystem {
