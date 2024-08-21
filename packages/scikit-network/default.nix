@@ -19,14 +19,15 @@ buildPythonPackage rec {
   pyproject = true;
 
   src = fetchPypi {
-    inherit pname version;
-    sha256 = "sha256-9/fMAutCZ7Fqk4P2RiYVLlm6Q11td7GjVmW2/BvPVy0=";
+    inherit version;
+    pname = "scikit-network";
+    hash = "sha256-9/fMAutCZ7Fqk4P2RiYVLlm6Q11td7GjVmW2/BvPVy0=";
   };
 
   # can be removed if https://github.com/sknetwork-team/scikit-network/pull/581 is merged
   postPatch = ''
     substituteInPlace setup.py \
-      --replace-warn "__builtins__.__NUMPY_SETUP__ = False" "__builtins__['__NUMPY_SETUP__'] = False"
+      --replace-fail "__builtins__.__NUMPY_SETUP__ = False" "__builtins__['__NUMPY_SETUP__'] = False"
   '';
 
   build-system = [
@@ -50,17 +51,11 @@ buildPythonPackage rec {
 
   pythonImportscheck = [ "sknetwork" ];
 
-  # meta = with lib; {
-  #   description = "A set of python modules for machine learning and data mining";
-  #   changelog =
-  #     let
-  #       major = versions.major version;
-  #       minor = versions.minor version;
-  #       dashVer = replaceStrings [ "." ] [ "-" ] version;
-  #     in
-  #     "https://scikit-learn.org/stable/whats_new/v${major}.${minor}.html#version-${dashVer}";
-  #   homepage = "https://scikit-learn.org";
-  #   license = licenses.bsd3;
-  #   # maintainers = with maintainers; [ davhau ];
+  # meta = {
+  #   description = "Free software library in Python for machine learning on graphs";
+  #   changelog = "https://raw.githubusercontent.com/sknetwork-team/scikit-network/master/HISTORY.rst";
+  #   homepage = "https://scikit-network.readthedocs.io";
+  #   license = lib.licenses.bsd3;
+  #   maintainers = with maintainers; [ simonbabovic ];
   # };
 }
