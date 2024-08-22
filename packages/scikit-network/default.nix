@@ -7,10 +7,7 @@
   setuptools,
   numpy,
   scipy,
-  pytest-runner,
-  pytest,
-  nose,
-  pluggy,
+  pytestCheckHook,
   ...
 }:
 buildPythonPackage rec {
@@ -27,7 +24,8 @@ buildPythonPackage rec {
   # can be removed if https://github.com/sknetwork-team/scikit-network/pull/581 is merged
   postPatch = ''
     substituteInPlace setup.py \
-      --replace-fail "__builtins__.__NUMPY_SETUP__ = False" "__builtins__['__NUMPY_SETUP__'] = False"
+      --replace-fail "__builtins__.__NUMPY_SETUP__ = False" "__builtins__['__NUMPY_SETUP__'] = False" \
+      --replace-fail "setup_requirements = ['pytest-runner']" "setup_requirements = []"
   '';
 
   build-system = [
@@ -35,21 +33,22 @@ buildPythonPackage rec {
     setuptools
     numpy
     scipy
-    pytest-runner
   ];
 
   dependencies = [
     numpy
     scipy
   ];
+  
+  preCheck = ''
+    cd $out
+  '';
 
   nativeCheckInputs = [
-    pytest
-    nose
-    pluggy
+    pytestCheckHook
   ];
 
-  pythonImportscheck = [ "sknetwork" ];
+  pythonImportsCheck = [ "sknetwork" ];
 
   # meta = {
   #   description = "Free software library in Python for machine learning on graphs";
