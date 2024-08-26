@@ -14,16 +14,19 @@
         vadimcn.vscode-lldb
         mechatroner.rainbow-csv
         grapecity.gc-excelviewer
+        # custom vscode extensions
+        # custom-vscode-extensions.magicstack.magicpython
       ];
     })
     gnome.gnome-boxes
     gcc_multi
     rustc
     cargo
-    (python3.withPackages (python-pkgs: with python-pkgs; [
-      graph-tool
+    (python311.withPackages (python-pkgs: with python-pkgs; [
       pip
-      scikit-network
+      # custom python packages
+      custom-python.scikit-network
+      custom-python.qiskit
     ]))
   ];
 

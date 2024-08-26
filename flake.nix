@@ -25,7 +25,8 @@
         inputs.home-manager.nixosModules.default
         {
           nixpkgs.overlays = [
-            (import ./packages)
+            (import ./packages/python)
+            (import ./packages/vscode-extensions)
           ];
         }
       ];
