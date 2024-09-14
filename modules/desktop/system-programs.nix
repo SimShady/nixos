@@ -18,6 +18,7 @@
         # custom-vscode-extensions.magicstack.magicpython
       ];
     })
+    postman
     gnome.gnome-boxes
     gcc_multi
     rustc
@@ -30,6 +31,7 @@
       custom-python.scikit-network
       custom-python.qiskit
     ]))
+    nodejs_22
   ];
 
   environment.variables = {
