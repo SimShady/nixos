@@ -4,12 +4,12 @@
     docker
     element-desktop
     (vscode-with-extensions.override {
-      vscode = vscodium;
       vscodeExtensions = with vscode-extensions; [
         jnoortheen.nix-ide
         vscode-icons-team.vscode-icons
         james-yu.latex-workshop
         ms-python.python
+        ms-python.vscode-pylance
         rust-lang.rust-analyzer
         vadimcn.vscode-lldb
         mechatroner.rainbow-csv
@@ -24,6 +24,8 @@
     cargo
     (python311.withPackages (python-pkgs: with python-pkgs; [
       pip
+      matplotlib
+      pylatexenc
       # custom python packages
       custom-python.scikit-network
       custom-python.qiskit
@@ -47,7 +49,6 @@
     l = "ls -alh";
     ll = "ls -la";
     ls = "ls --color=tty";
-    code = "codium";
   };
 
   virtualisation.libvirtd = {
