@@ -6,10 +6,10 @@
     after = [ "docker.service" "network-online.target" ];
     path = [ pkgs.docker ];
     serviceConfig = {
+      Type = "oneshot";
+      RemainAfterExit = true;
       ExecStart = "/bin/sh /var/services/mailjet-mailer/start.sh";
       ExecStop = "/bin/sh /var/services/mailjet-mailer/stop.sh";
-      Restart = "always";
-      RestartSec = "10s";
     };
     wantedBy = [ "multi-user.target" ];
   };
