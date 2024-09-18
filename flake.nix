@@ -31,6 +31,20 @@
         }
       ];
     };
+    nixosConfigurations.matebook = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = {inherit inputs;};
+      modules = [
+        (import ./hosts/matebook/configuration.nix)
+        inputs.home-manager.nixosModules.default
+        {
+          nixpkgs.overlays = [
+            (import ./packages/python)
+            (import ./packages/vscode-extensions)
+          ];
+        }
+      ];
+    };
     nixosConfigurations.babovicat = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {inherit inputs;};
