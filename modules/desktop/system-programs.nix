@@ -1,6 +1,7 @@
 { pkgs, ... }:{
   environment.systemPackages = with pkgs; [
     vesktop
+    zoom-us
     docker
     element-desktop
     (vscode-with-extensions.override {
