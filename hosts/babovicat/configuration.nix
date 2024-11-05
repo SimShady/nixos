@@ -6,12 +6,10 @@
     ./services/docker.nix
     ./services/acme.nix
     ./services/nginx.nix
-    ./services/postgresql.nix
     ./services/node-exporter.nix
     ./services/prometheus.nix
     ./services/grafana.nix
     ./services/matrix-conduit.nix
-    ./services/paperless.nix
     ./web/babovic.nix
     ./web/playitloud.nix
   ];

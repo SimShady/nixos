@@ -8,6 +8,7 @@ in {
     ./locale.nix
     ./display.nix
     ./audio.nix
+    ./mysql.nix
     ./system-programs.nix
     ./vpn.nix
   ];

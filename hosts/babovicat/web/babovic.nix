@@ -5,7 +5,6 @@
     email = "cert+simon@babovic.at";
     group = "nginx";
     extraDomainNames = [
-      "paperless.babovic.at"
       "matrix.babovic.at"
       "grafana.babovic.at"
       "kartturnier.babovic.at"
