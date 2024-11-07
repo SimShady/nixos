@@ -5,6 +5,7 @@
     ./services/systemd.nix
     ./services/docker.nix
     ./services/acme.nix
+    ./services/mysql.nix
     ./services/nginx.nix
     ./services/node-exporter.nix
     ./services/prometheus.nix

@@ -30,10 +30,10 @@
     onlySSL = true;
     useACMEHost = "babovic.at";
     acmeRoot = config.security.acme.certs."babovic.at".webroot;
-    root = "/var/www/kartturnier";
     locations."/".extraConfig = ''
-      try_files = $uri $uri/ $uri.html = 404;
+      proxy_pass http://127.0.0.1:3000;
     '';
+    listen = [ { addr = "0.0.0.0"; port = 443; } { addr = "[::0]"; port = 443; } ];
   };
   services.nginx.virtualHosts."babovic.at" = {
     onlySSL = true;
