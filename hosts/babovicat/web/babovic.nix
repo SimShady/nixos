@@ -31,9 +31,9 @@
     useACMEHost = "babovic.at";
     acmeRoot = config.security.acme.certs."babovic.at".webroot;
     locations."/admin" = {
-      basicAuth = {
-        "pöpi" = "kariomart";
-      };
+      basicAuthFile = pkgs.writeText "$out/.htpasswd" ''
+        pöpi:$2y$05$0ORcoyQ.22d2LCFX9.ONXO1El2wpDLTk25YDsAk6zDNgKsKH2NfTO
+      '';
       extraConfig = ''
         proxy_pass http://127.0.0.1:3000;
       '';
