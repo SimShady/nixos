@@ -30,6 +30,14 @@
     onlySSL = true;
     useACMEHost = "babovic.at";
     acmeRoot = config.security.acme.certs."babovic.at".webroot;
+    locations."/admin" = {
+      basicAuth = {
+        "pöpi" = "kariomart";
+      };
+      extraConfig = ''
+        proxy_pass http://127.0.0.1:3000;
+      '';
+    };
     locations."/".extraConfig = ''
       proxy_pass http://127.0.0.1:3000;
     '';
