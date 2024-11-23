@@ -13,6 +13,8 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
   };
 
   outputs = { self, nixpkgs, nixinate, ... }@inputs: {
@@ -53,6 +55,28 @@
         {
           _module.args.nixinate = {
             host = "babovic.at";
+            sshUser = "simon";
+            buildOn = "remote";
+            substituteOnTarget = true;
+            hermetic = false;
+          };
+        }
+      ];
+    };
+    nixosConfigurations.minecraft-server = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = {inherit inputs;};
+      modules = [
+        (import ./hosts/minecraft-server/configuration.nix)
+        inputs.nix-minecraft.nixosModules.minecraft-servers
+        {
+          nixpkgs.overlays = [
+            inputs.nix-minecraft.overlay
+          ];
+        }
+        {
+          _module.args.nixinate = {
+            host = "minecraft.babovic.at";
             sshUser = "simon";
             buildOn = "remote";
             substituteOnTarget = true;

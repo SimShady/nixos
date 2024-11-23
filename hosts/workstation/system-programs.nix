@@ -5,6 +5,7 @@
       lang = "en";
       webdoc = true;
     })
+    prismlauncher
   ];
 
   programs.steam = {
