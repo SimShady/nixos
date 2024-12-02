@@ -33,9 +33,9 @@
       identityFile = "/home/simon/.ssh/id_hetzner_deploybot";
       hostname = "babovic.at";
     };
-    "simon.minecraft" = {
+    "minecraft.babovic.at" = {
       user = "root";
-      identityFile = "/home/simon/.ssh/id_nandevelopment"; # nicola is hosting
+      identityFile = "/home/simon/.ssh/id_hetzner_private";
       hostname = "minecraft.babovic.at";
     };
     "simon.nandevelopment" = {
