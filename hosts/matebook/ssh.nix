@@ -20,6 +20,11 @@
       identityFile = "/home/simon/.ssh/id_rsa_airlab";
       hostname = "simonbabovic01.airlab";
     };
+    "minecraft.babovic.at" = {
+      user = "root";
+      identityFile = "/home/simon/.ssh/id_hetzner_private";
+      hostname = "minecraft.babovic.at";
+    };
     "simon.babovicat" = {
       user = "simon";
       identityFile = "/home/simon/.ssh/id_hetzner_private";
