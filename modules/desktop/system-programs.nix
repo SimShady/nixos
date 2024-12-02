@@ -23,6 +23,7 @@
     postman
     gnome-boxes
     gcc_multi
+    gnumake
     rustc
     cargo
     openssl
