@@ -4,6 +4,9 @@
     "server4.physprak.tuwien.ac.at" = {
       hostname = "server4.physprak.tuwien.ac.at";
       user = "babovic";
+      extraOptions = {
+        PubkeyAuthentication = "no";
+      };
     };
     "*.fstph.htu.tuwien.ac.at" = {
       user = "admin-simon";
