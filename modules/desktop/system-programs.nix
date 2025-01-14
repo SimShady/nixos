@@ -28,7 +28,7 @@
     cargo
     openssl
     (python311.withPackages (python-pkgs: with python-pkgs; [
-      pip
+      # pip
       matplotlib
       pylatexenc
       # custom python packages

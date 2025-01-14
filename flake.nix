@@ -70,8 +70,7 @@
         (import ./hosts/pixel/configuration.nix)
         {
           _module.args.nixinate = {
-            # host = "pixel.eurojumbo.at";
-            host = "188.245.159.48";
+            host = "pixel.eurojumbo.at";
             sshUser = "simon";
             buildOn = "remote";
             substituteOnTarget = true;
@@ -85,12 +84,12 @@
       specialArgs = {inherit inputs;};
       modules = [
         (import ./hosts/minecraft-server/configuration.nix)
-        inputs.nix-minecraft.nixosModules.minecraft-servers
-        {
-          nixpkgs.overlays = [
-            inputs.nix-minecraft.overlay
-          ];
-        }
+        # inputs.nix-minecraft.nixosModules.minecraft-servers
+        # {
+        #   nixpkgs.overlays = [
+        #     inputs.nix-minecraft.overlay
+        #   ];
+        # }
         {
           _module.args.nixinate = {
             host = "minecraft.babovic.at";
