@@ -58,6 +58,14 @@
     ls = "ls --color=tty";
   };
 
+  programs.virt-manager.enable = true;
+
+  users.groups.libvirtd.members = ["simon"];
+
+  virtualisation.spiceUSBRedirection.enable = true;
+
+  users.users.simon.extraGroups = [ "libvirtd" ];
+
   virtualisation.libvirtd = {
     enable = true;
     qemu = {
