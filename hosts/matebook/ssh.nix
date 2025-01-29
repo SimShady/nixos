@@ -8,15 +8,26 @@
         PubkeyAuthentication = "no";
       };
     };
+    "stargate.fstph.htu.tuwien.ac.at" = {
+      dynamicForwards = [
+        {
+          port = 12346;
+        }
+      ];
+    };
     "*.fstph.htu.tuwien.ac.at" = {
       user = "admin-simon";
       identityFile = "/home/simon/.ssh/id_rsa_fstph";
+    };
+    "bluefire.fstph.htu.tuwien.ac.at" = {
+      user = "simon";
     };
     "*.fstph.htu.tuwien.ac.at !stargate.fstph.htu.tuwien.ac.at" = {
       proxyJump = "stargate.fstph.htu.tuwien.ac.at";
     };
     "forumalt.fstph.htu.tuwien.ac.at" = {
       user = "root";
+      identityFile = "/home/simon/.ssh/id_rsa_fstph";
     };
     "simon.airlab" = {
       user = "simon";
