@@ -20,9 +20,13 @@
       identityFile = "/home/simon/.ssh/id_rsa_fstph";
     };
     "bluefire.fstph.htu.tuwien.ac.at" = {
-      user = "simon";
+      dynamicForwards = [
+        {
+          port = 12345;
+        }
+      ];
     };
-    "*.fstph.htu.tuwien.ac.at !stargate.fstph.htu.tuwien.ac.at" = {
+    "*.fstph.htu.tuwien.ac.at !stargate.fstph.htu.tuwien.ac.at !bluefire.fstph.htu.tuwien.ac.at" = {
       proxyJump = "stargate.fstph.htu.tuwien.ac.at";
     };
     "forumalt.fstph.htu.tuwien.ac.at" = {
