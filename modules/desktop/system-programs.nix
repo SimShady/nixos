@@ -36,6 +36,7 @@
       # custom-python.qiskit
     ]))
     nodejs_22
+    android-studio
   ];
 
   environment.variables = {
