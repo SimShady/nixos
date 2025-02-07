@@ -1,6 +1,9 @@
 { pkgs, ... }:{
   programs.ssh.enable = true;
   programs.ssh.matchBlocks = {
+    "gitlab.tuwien.ac.at" = {
+      identityFile = "/home/simon/.ssh/id_rsa_fstph";
+    };
     "server4.physprak.tuwien.ac.at" = {
       hostname = "server4.physprak.tuwien.ac.at";
       user = "babovic";
