@@ -1,6 +1,9 @@
 { pkgs, ... }:{
   programs.ssh.enable = true;
   programs.ssh.matchBlocks = {
+    "gitlab.tuwien.ac.at" = {
+      identityFile = "/home/simon/.ssh/id_rsa_fstph";
+    };
     "server4.physprak.tuwien.ac.at" = {
       hostname = "server4.physprak.tuwien.ac.at";
       user = "babovic";
@@ -8,11 +11,25 @@
         PubkeyAuthentication = "no";
       };
     };
+    "stargate.fstph.htu.tuwien.ac.at" = {
+      dynamicForwards = [
+        {
+          port = 12346;
+        }
+      ];
+    };
+    "bluefire.fstph.htu.tuwien.ac.at" = {
+      dynamicForwards = [
+        {
+          port = 12345;
+        }
+      ];
+    };
     "*.fstph.htu.tuwien.ac.at" = {
       user = "admin-simon";
       identityFile = "/home/simon/.ssh/id_rsa_fstph";
     };
-    "*.fstph.htu.tuwien.ac.at !stargate.fstph.htu.tuwien.ac.at" = {
+    "*.fstph.htu.tuwien.ac.at !stargate.fstph.htu.tuwien.ac.at !bluefire.fstph.htu.tuwien.ac.at" = {
       proxyJump = "stargate.fstph.htu.tuwien.ac.at";
     };
     "forumalt.fstph.htu.tuwien.ac.at" = {
