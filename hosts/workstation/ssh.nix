@@ -25,12 +25,18 @@
         }
       ];
     };
-    "*.fstph.htu.tuwien.ac.at" = {
+    "*.fstph.htu.tuwien.ac.at !cerberos.fstph.htu.tuwien.ac.at !forumalt.fstph.htu.tuwien.ac.at" = {
       user = "admin-simon";
       identityFile = "/home/simon/.ssh/id_rsa_fstph";
     };
     "*.fstph.htu.tuwien.ac.at !stargate.fstph.htu.tuwien.ac.at !bluefire.fstph.htu.tuwien.ac.at" = {
       proxyJump = "stargate.fstph.htu.tuwien.ac.at";
+    };
+    "cerberos.fstph.htu.tuwien.ac.at" = {
+      user = "root";
+      extraOptions = {
+        PubkeyAuthentication = "no";
+      };
     };
     "forumalt.fstph.htu.tuwien.ac.at" = {
       user = "root";
