@@ -1,5 +1,7 @@
 { pkgs, ... }:{
   environment.systemPackages = with pkgs; [
+    age
+    sops
     vesktop
     zoom-us
     docker
@@ -16,6 +18,7 @@
         mechatroner.rainbow-csv
         grapecity.gc-excelviewer
         prisma.prisma
+        hashicorp.terraform
         # custom vscode extensions
         # custom-vscode-extensions.magicstack.magicpython
       ];
