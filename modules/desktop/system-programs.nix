@@ -38,7 +38,6 @@
       # custom-python.scikit-network
       # custom-python.qiskit
     ]))
-    nodejs_22
     android-studio
   ];
 
