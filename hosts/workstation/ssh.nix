@@ -78,10 +78,6 @@
       identityFile = "/home/simon/.ssh/id_nandevelopment";
       hostname = "49.13.234.145";
     };
-    "pixel.eurojumbo.at" = {
-      user = "simon";
-      identityFile = "/home/simon/.ssh/id_hetzner_private";
-    };
     "github.com" = {
       identityFile = "/home/simon/.ssh/id_github_private";
     };

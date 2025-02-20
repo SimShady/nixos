@@ -70,10 +70,6 @@
       identityFile = "/home/simon/.ssh/id_hetzner_private";
       hostname = "minecraft.babovic.at";
     };
-    "pixel.eurojumbo.at" = {
-      user = "simon";
-      identityFile = "/home/simon/.ssh/id_hetzner_private";
-    };
     "github.com" = {
       identityFile = "/home/simon/.ssh/id_github_private";
     };
