@@ -4,6 +4,13 @@
     "gitlab.tuwien.ac.at" = {
       identityFile = "/home/simon/.ssh/id_rsa_fstph";
     };
+    "codeberg.org" = {
+      identityFile = "/home/simon/.ssh/id_codeberg";
+    };
+    "*.stammtisch.wien" = {
+      user = "simon";
+      identityFile = "/home/simon/.ssh/id_stammtisch";
+    };
     "server4.physprak.tuwien.ac.at" = {
       hostname = "server4.physprak.tuwien.ac.at";
       user = "babovic";
