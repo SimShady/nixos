@@ -11,6 +11,7 @@
     ./services/prometheus.nix
     ./services/grafana.nix
     ./services/matrix-conduit.nix
+    ./services/it-tools.nix
     ./web/babovic.nix
     ./web/playitloud.nix
   ];

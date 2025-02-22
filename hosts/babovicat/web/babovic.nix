@@ -9,6 +9,7 @@
       "grafana.babovic.at"
       "kartturnier.babovic.at"
       "mailer.babovic.at"
+      "tools.babovic.at"
     ];
   };
   # http to https redirect
@@ -60,5 +61,14 @@
       proxy_pass http://127.0.0.1:11110;
     '';
     listen = [ { addr = "0.0.0.0"; port = 443; } { addr = "[::0]"; port = 443; } ];
+  };
+  services.nginx.virtualHosts."tools.babovic.at" = {
+    onlySSL = true;
+    useACMEHost = "babovic.at";
+    acmeRoot = config.security.acme.certs."babovic.at".webroot;
+    root = "${pkgs.it-tools}/lib";
+    locations."/".extraConfig = ''
+      try_files = $uri $uri/ $uri.html = 404;
+    '';
   };
 }
