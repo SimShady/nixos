@@ -63,22 +63,6 @@
         }
       ];
     };
-    nixosConfigurations.pixel = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = {inherit inputs;};
-      modules = [
-        (import ./hosts/pixel/configuration.nix)
-        {
-          _module.args.nixinate = {
-            host = "pixel.eurojumbo.at";
-            sshUser = "simon";
-            buildOn = "remote";
-            substituteOnTarget = true;
-            hermetic = false;
-          };
-        }
-      ];
-    };
     nixosConfigurations.minecraft-server = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {inherit inputs;};
