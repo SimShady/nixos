@@ -67,8 +67,11 @@
     useACMEHost = "babovic.at";
     acmeRoot = config.security.acme.certs."babovic.at".webroot;
     root = "${pkgs.it-tools}/lib";
+    extraConfig = ''
+      index index.html;
+    '';
     locations."/".extraConfig = ''
-      try_files = $uri $uri/ $uri.html = 404;
+      try_files $uri $uri/ /index.html;
     '';
   };
 }
