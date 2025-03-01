@@ -7,7 +7,7 @@ keys:
   - &machine_workstation age1sf5wwndxfvevdxs8lzhhqvh4v9p8g9vxywdf63wm3evusv7frvjsfuq7t3
 
 creation_rules:
-  - path_regex: secrets/.*?\.yaml
+  - path_regex: secrets/personal.yaml
     key_groups:
       - age:
           - *machine_matebook
