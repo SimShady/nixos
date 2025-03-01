@@ -29,6 +29,7 @@
       specialArgs = {inherit inputs;};
       modules = [
         (import ./hosts/workstation/configuration.nix)
+        inputs.sops-nix.nixosModules.sops
         inputs.home-manager.nixosModules.default
         {
           nixpkgs.overlays = [
@@ -42,8 +43,8 @@
       system = "x86_64-linux";
       specialArgs = {inherit inputs;};
       modules = [
-        inputs.sops-nix.nixosModules.sops
         (import ./hosts/matebook/configuration.nix)
+        inputs.sops-nix.nixosModules.sops
         inputs.home-manager.nixosModules.default
         {
           nixpkgs.overlays = [
@@ -69,27 +70,27 @@
         }
       ];
     };
-    nixosConfigurations.minecraft-server = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = {inherit inputs;};
-      modules = [
-        (import ./hosts/minecraft-server/configuration.nix)
-        # inputs.nix-minecraft.nixosModules.minecraft-servers
-        # {
-        #   nixpkgs.overlays = [
-        #     inputs.nix-minecraft.overlay
-        #   ];
-        # }
-        {
-          _module.args.nixinate = {
-            host = "minecraft.babovic.at";
-            sshUser = "simon";
-            buildOn = "remote";
-            substituteOnTarget = true;
-            hermetic = false;
-          };
-        }
-      ];
-    };
+    # nixosConfigurations.minecraft-server = nixpkgs.lib.nixosSystem {
+    #   system = "x86_64-linux";
+    #   specialArgs = {inherit inputs;};
+    #   modules = [
+    #     (import ./hosts/minecraft-server/configuration.nix)
+    #     # inputs.nix-minecraft.nixosModules.minecraft-servers
+    #     # {
+    #     #   nixpkgs.overlays = [
+    #     #     inputs.nix-minecraft.overlay
+    #     #   ];
+    #     # }
+    #     {
+    #       _module.args.nixinate = {
+    #         host = "minecraft.babovic.at";
+    #         sshUser = "simon";
+    #         buildOn = "remote";
+    #         substituteOnTarget = true;
+    #         hermetic = false;
+    #       };
+    #     }
+    #   ];
+    # };
   };
 }

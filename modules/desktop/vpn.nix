@@ -1,4 +1,4 @@
-{ pkgs, ... }:{
+{ pkgs, config, ... }:{
   # networking.firewall = {
   #   allowedUDPPorts = [ 51820 ];
   # };
@@ -68,7 +68,7 @@
       tuwien = {
         autoStart = false;
         gateway = "vpn.tuwien.ac.at";
-        passwordFile = "/home/simon/vpn-keys/tuwien/password";
+        passwordFile = config.sops.secrets."tuwien/networkpass".path;
         protocol = "anyconnect";
         user = "e12002084@student.tuwien.ac.at";
         extraOptions = {
@@ -78,7 +78,7 @@
       tuwien-all = {
         autoStart = false;
         gateway = "vpn.tuwien.ac.at";
-        passwordFile = "/home/simon/vpn-keys/tuwien/password";
+        passwordFile = config.sops.secrets."tuwien/networkpass".path;
         protocol = "anyconnect";
         user = "e12002084@student.tuwien.ac.at";
         extraOptions = {
