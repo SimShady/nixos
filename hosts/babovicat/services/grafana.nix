@@ -7,6 +7,7 @@
         http_addr = "127.0.0.1";
         http_port = 3031;
         domain = "grafana.babovic.at";
+        root_url = "https://grafana.babovic.at";
       };
     };
   };

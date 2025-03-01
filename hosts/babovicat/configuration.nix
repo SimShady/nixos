@@ -11,6 +11,7 @@
     ./services/prometheus.nix
     ./services/grafana.nix
     ./services/matrix-conduit.nix
+    ./services/maubot.nix
     ./web/babovic.nix
     ./web/playitloud.nix
   ];
@@ -60,6 +61,11 @@
     automatic = true;
     options = "--delete-older-than 14d";
   };
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "olm-3.2.16"
+  ];
+
 
   system.stateVersion = "23.11";
 }
