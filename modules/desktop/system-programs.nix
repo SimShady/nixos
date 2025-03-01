@@ -13,7 +13,6 @@
         james-yu.latex-workshop
         ms-python.python
         ms-python.vscode-pylance
-        rust-lang.rust-analyzer
         vadimcn.vscode-lldb
         mechatroner.rainbow-csv
         grapecity.gc-excelviewer

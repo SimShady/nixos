@@ -15,6 +15,11 @@
     };
 
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
+
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, nixinate, ... }@inputs: {
@@ -37,6 +42,7 @@
       system = "x86_64-linux";
       specialArgs = {inherit inputs;};
       modules = [
+        inputs.sops-nix.nixosModules.sops
         (import ./hosts/matebook/configuration.nix)
         inputs.home-manager.nixosModules.default
         {

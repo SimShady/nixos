@@ -57,6 +57,11 @@
   #   };
   # };
 
+  sops.secrets."tuwien/networkpass" = {
+    sopsFile = ../../secrets/personal.yaml;
+    restartUnits = [ "network.target" ];
+  };
+
   networking.openconnect = {
     package = pkgs.openconnect;
     interfaces = {

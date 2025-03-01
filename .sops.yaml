@@ -1,0 +1,12 @@
+---
+keys:
+  - &simon_matebook age12tw3rad9pzs6062vjhv4crxg88wejf9f8sxp76d64tq999dye4xqw7n75s
+  # generate with: `ssh <machine> 'sudo cat /etc/ssh/ssh_host_ed25519_key.pub' | nix run nixpkgs#ssh-to-age`
+  - &machine_matebook age1hat6t9he3f2ggpur33yn5s24th4la3a50z58qw5yslleavn7gcxq08vhj2
+
+creation_rules:
+  - path_regex: secrets/.*?\.yaml
+    key_groups:
+      - age:
+          - *machine_matebook
+          - *simon_matebook
