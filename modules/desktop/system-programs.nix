@@ -18,25 +18,13 @@
         grapecity.gc-excelviewer
         prisma.prisma
         hashicorp.terraform
-        # custom vscode extensions
-        # custom-vscode-extensions.magicstack.magicpython
       ];
     })
     postman
     gnome-boxes
     gcc_multi
     gnumake
-    rustc
-    cargo
     openssl
-    (python311.withPackages (python-pkgs: with python-pkgs; [
-      # pip
-      matplotlib
-      pylatexenc
-      # custom python packages
-      # custom-python.scikit-network
-      # custom-python.qiskit
-    ]))
     android-studio
   ];
 
