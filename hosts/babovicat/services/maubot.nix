@@ -21,7 +21,7 @@ in {
       server.public_url = "https://matrix.${serverName}";
       admins = {
         root = "";
-        test = "test";
+        test = "test"; # TODO: sops
       };
       homeservers = {
         "babovic.at" = {

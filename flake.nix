@@ -14,8 +14,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
-
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -36,12 +34,6 @@
         (import ./hosts/workstation/configuration.nix)
         inputs.sops-nix.nixosModules.sops
         inputs.home-manager.nixosModules.default
-        {
-          nixpkgs.overlays = [
-            (import ./packages/python)
-            (import ./packages/vscode-extensions)
-          ];
-        }
       ];
     };
     nixosConfigurations.matebook = nixpkgs.lib.nixosSystem {
@@ -51,12 +43,6 @@
         (import ./hosts/matebook/configuration.nix)
         inputs.sops-nix.nixosModules.sops
         inputs.home-manager.nixosModules.default
-        {
-          nixpkgs.overlays = [
-            (import ./packages/python)
-            (import ./packages/vscode-extensions)
-          ];
-        }
       ];
     };
     nixosConfigurations.babovicat = nixpkgs.lib.nixosSystem {
@@ -70,11 +56,6 @@
       modules = [
         (import ./hosts/babovicat/configuration.nix)
         {
-          nixpkgs.overlays = [
-            (import ./packages/private)
-          ];
-        }
-        {
           _module.args.nixinate = {
             host = "babovic.at";
             sshUser = "simon";
@@ -85,27 +66,5 @@
         }
       ];
     };
-    # nixosConfigurations.minecraft-server = nixpkgs.lib.nixosSystem {
-    #   system = "x86_64-linux";
-    #   specialArgs = {inherit inputs;};
-    #   modules = [
-    #     (import ./hosts/minecraft-server/configuration.nix)
-    #     # inputs.nix-minecraft.nixosModules.minecraft-servers
-    #     # {
-    #     #   nixpkgs.overlays = [
-    #     #     inputs.nix-minecraft.overlay
-    #     #   ];
-    #     # }
-    #     {
-    #       _module.args.nixinate = {
-    #         host = "minecraft.babovic.at";
-    #         sshUser = "simon";
-    #         buildOn = "remote";
-    #         substituteOnTarget = true;
-    #         hermetic = false;
-    #       };
-    #     }
-    #   ];
-    # };
   };
 }
