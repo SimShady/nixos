@@ -55,10 +55,9 @@
       identityFile = "/home/simon/.ssh/id_hetzner_private";
       hostname = "minecraft.babovic.at";
     };
-    "simon.babovicat" = {
+    "babovic.at" = {
       user = "simon";
       identityFile = "/home/simon/.ssh/id_hetzner_private";
-      hostname = "babovic.at";
     };
     "deploybot.babovicat" = {
       user = "deploybot";
