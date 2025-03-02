@@ -34,6 +34,24 @@
         "type": "github"
       }
     },
+    "flake-utils_2": {
+      "inputs": {
+        "systems": "systems_2"
+      },
+      "locked": {
+        "lastModified": 1731533236,
+        "narHash": "sha256-l0KFg5HjrsfsO/JpG+r7fRrqm12kzFHyUHqHCVpMMbI=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "11707dc2f618dd54ca8739b309ec4fc024de578b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -126,12 +144,35 @@
         "type": "github"
       }
     },
+    "playitloud": {
+      "inputs": {
+        "flake-utils": "flake-utils_2",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1740928670,
+        "narHash": "sha256-PbEYKCiCH5CUAMEhR87eGs9uLwZ8rRHIwj/pGJcaX9Y=",
+        "ref": "refs/heads/main",
+        "rev": "2ab153bb5bcc0e44f79267f56fd7bb2edf79873b",
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/SimShady/playitloud-frontend.git"
+      },
+      "original": {
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/SimShady/playitloud-frontend.git"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
         "nix-minecraft": "nix-minecraft",
         "nixinate": "nixinate",
         "nixpkgs": "nixpkgs_2",
+        "playitloud": "playitloud",
         "sops-nix": "sops-nix"
       }
     },
@@ -156,6 +197,21 @@
       }
     },
     "systems": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
+    "systems_2": {
       "locked": {
         "lastModified": 1681028828,
         "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",

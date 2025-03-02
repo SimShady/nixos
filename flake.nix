@@ -20,6 +20,11 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    playitloud = {
+      url = "git+ssh://git@github.com/SimShady/playitloud-frontend.git?shallow=1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, nixinate, ... }@inputs: {
@@ -56,9 +61,19 @@
     };
     nixosConfigurations.babovicat = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = {inherit inputs;};
+      specialArgs = {
+        inherit inputs;
+        private-pkgs = {
+          playitloud = inputs.playitloud.packages.x86_64-linux.playitloud;
+        };
+      };
       modules = [
         (import ./hosts/babovicat/configuration.nix)
+        {
+          nixpkgs.overlays = [
+            (import ./packages/private)
+          ];
+        }
         {
           _module.args.nixinate = {
             host = "babovic.at";

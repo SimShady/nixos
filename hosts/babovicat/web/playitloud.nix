@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, private-pkgs, ... }:
 {
   security.acme.certs."playitloud-musikunterricht.de" = {
     webroot = "/var/lib/acme/challenges-playitloud";
@@ -27,7 +27,7 @@
     serverAliases = ["www.playitloud-musikunterricht.de"];
     useACMEHost = "playitloud-musikunterricht.de";
     acmeRoot = config.security.acme.certs."playitloud-musikunterricht.de".webroot;
-    root = "/var/www/playitloud";
+    root = "${private-pkgs.playitloud}/www";
     locations."/".extraConfig = ''
       try_files = $uri $uri/ $uri.html = 404; 
     '';
