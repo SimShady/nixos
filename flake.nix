@@ -63,7 +63,7 @@
           _module.args.nixinate = {
             host = "babovic.at";
             sshUser = "simon";
-            buildOn = "remote";
+            buildOn = "local";
             substituteOnTarget = true;
             hermetic = false;
           };
