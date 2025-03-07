@@ -35,6 +35,16 @@
         (import ./hosts/workstation/configuration.nix)
         inputs.sops-nix.nixosModules.sops
         inputs.home-manager.nixosModules.default
+        (
+          { config, ... }:{
+            _module.args = {
+              inherit (config.sops) secrets;
+              private-pkgs = {
+                playitloud = inputs.playitloud.packages.x86_64-linux.playitloud;
+              };
+            };
+          }
+        )
       ];
     };
     nixosConfigurations.matebook = nixpkgs.lib.nixosSystem {
@@ -45,28 +55,42 @@
         (import ./hosts/matebook/configuration.nix)
         inputs.sops-nix.nixosModules.sops
         inputs.home-manager.nixosModules.default
+        (
+          { config, ... }:{
+            _module.args = {
+              inherit (config.sops) secrets;
+              private-pkgs = {
+                playitloud = inputs.playitloud.packages.x86_64-linux.playitloud;
+              };
+            };
+          }
+        )
       ];
     };
     nixosConfigurations.babovicat = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = {
-        inherit inputs;
-        private-pkgs = {
-          playitloud = inputs.playitloud.packages.x86_64-linux.playitloud;
-        };
-      };
+      specialArgs = {inherit inputs;};
       modules = [
         { nixpkgs.overlays = [ (_: super: import ./pkgs super) ]; }
         (import ./hosts/babovicat/configuration.nix)
-        {
-          _module.args.nixinate = {
-            host = "babovic.at";
-            sshUser = "simon";
-            buildOn = "local";
-            substituteOnTarget = true;
-            hermetic = false;
-          };
-        }
+        inputs.sops-nix.nixosModules.sops
+        (
+          { config, ... }:{
+            _module.args = {
+              inherit (config.sops) secrets;
+              private-pkgs = {
+                playitloud = inputs.playitloud.packages.x86_64-linux.playitloud;
+              };
+              nixinate = {
+                host = "babovic.at";
+                sshUser = "simon";
+                buildOn = "local";
+                substituteOnTarget = true;
+                hermetic = false;
+              };
+            };
+          }
+        )
       ];
     };
   };

@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:{
+{ pkgs, config, secrets, ... }:{
   sops.secrets."tuwien/networkpass" = {
     sopsFile = ../../secrets/personal.yaml;
     restartUnits = [ "network.target" ];
@@ -10,7 +10,7 @@
       tuwien = {
         autoStart = false;
         gateway = "vpn.tuwien.ac.at";
-        passwordFile = config.sops.secrets."tuwien/networkpass".path;
+        passwordFile = secrets."tuwien/networkpass".path;
         protocol = "anyconnect";
         user = "e12002084@student.tuwien.ac.at";
         extraOptions = {
@@ -20,7 +20,7 @@
       tuwien-all = {
         autoStart = false;
         gateway = "vpn.tuwien.ac.at";
-        passwordFile = config.sops.secrets."tuwien/networkpass".path;
+        passwordFile = secrets."tuwien/networkpass".path;
         protocol = "anyconnect";
         user = "e12002084@student.tuwien.ac.at";
         extraOptions = {
