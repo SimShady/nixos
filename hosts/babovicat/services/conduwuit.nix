@@ -20,7 +20,7 @@ in {
       allow_guest_registration = false;
       allow_legacy_media = true;
       database_backend = "rocksdb";
-      trusted_servers = [ "matrix.org" ];
+      trusted_servers = [ "matrix.org" "htu.at" ];
       max_request_size = 32 * 1024 * 1024; # 32 MiB
       ip_lookup_strategy = 4; # Ipv6thenIpv4
       new_user_displayname_suffix = "🆕";

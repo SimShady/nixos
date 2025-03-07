@@ -31,6 +31,7 @@
       system = "x86_64-linux";
       specialArgs = {inherit inputs;};
       modules = [
+        { nixpkgs.overlays = [ (_: super: import ./pkgs super) ]; }
         (import ./hosts/workstation/configuration.nix)
         inputs.sops-nix.nixosModules.sops
         inputs.home-manager.nixosModules.default
@@ -40,6 +41,7 @@
       system = "x86_64-linux";
       specialArgs = {inherit inputs;};
       modules = [
+        { nixpkgs.overlays = [ (_: super: import ./pkgs super) ]; }
         (import ./hosts/matebook/configuration.nix)
         inputs.sops-nix.nixosModules.sops
         inputs.home-manager.nixosModules.default
@@ -54,6 +56,7 @@
         };
       };
       modules = [
+        { nixpkgs.overlays = [ (_: super: import ./pkgs super) ]; }
         (import ./hosts/babovicat/configuration.nix)
         {
           _module.args.nixinate = {

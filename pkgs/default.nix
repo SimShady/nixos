@@ -1,0 +1,8 @@
+{
+  callPackage,
+  ...
+}:
+
+{
+  conduwuit = callPackage ./conduwuit { };
+}
