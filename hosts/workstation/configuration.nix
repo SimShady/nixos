@@ -16,9 +16,5 @@
     };
   };
 
-  sops.age = {
-    keyFile = "/var/lib/sops-nix/key.txt";
-  };
-
   system.stateVersion = "24.05";
 }

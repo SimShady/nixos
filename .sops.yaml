@@ -15,3 +15,9 @@ creation_rules:
           - *machine_workstation
           - *simon_matebook
           - *simon_workstation
+  - path_regex: secrets/babovicat.yaml
+    key_groups:
+      - age:
+          - *machine_babovicat
+          - *simon_matebook
+          - *simon_workstation
