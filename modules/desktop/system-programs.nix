@@ -26,6 +26,7 @@
     gnumake
     openssl
     android-studio
+    gcolor3
   ];
 
   environment.variables = {
