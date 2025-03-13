@@ -18,6 +18,7 @@
         grapecity.gc-excelviewer
         prisma.prisma
         hashicorp.terraform
+        ms-vscode.cpptools-extension-pack
       ];
     })
     postman
