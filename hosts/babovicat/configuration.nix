@@ -12,6 +12,7 @@
     ./services/grafana.nix
     ./services/conduwuit.nix
     ./services/maubot.nix
+    # ./services/mautrix-signal.nix
     ./web/babovic.nix
     ./web/playitloud.nix
   ];
