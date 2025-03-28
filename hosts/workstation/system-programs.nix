@@ -13,6 +13,7 @@
     };
    })
     prismlauncher
+    r2modman
   ];
 
   programs.steam = {
