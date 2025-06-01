@@ -1,8 +1,9 @@
 { config, pkgs, ... }:{
   services.xserver.enable = true;
 
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
+  services.displayManager.gdm.autoSuspend = false;
 
   services.xserver.xkb = {
     layout = "de";
@@ -13,7 +14,6 @@
   systemd.targets.suspend.enable = false;
   systemd.targets.hibernate.enable = false;
   systemd.targets.hybrid-sleep.enable = false;
-  services.xserver.displayManager.gdm.autoSuspend = false;
   systemd.sleep.extraConfig = ''
     AllowSuspend=no
     AllowHibernation=no
