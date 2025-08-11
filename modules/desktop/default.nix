@@ -11,6 +11,7 @@ in {
     ./mysql.nix
     ./system-programs.nix
     ./vpn.nix
+    ./fonts.nix
   ];
 
   options.simon.desktop = with types; {

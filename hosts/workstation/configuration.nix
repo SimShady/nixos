@@ -15,6 +15,15 @@
       extraSpecialArgs = { inherit inputs; };
     };
   };
+  
+  nixpkgs.config.allowUnfree = true;
+
+  boot.initrd.kernelModules = ["amdgpu"];
+
+  environment.variables = {
+    RUSTICL_ENABLE = "radeonsi";
+    ROC_ENABLE_PRE_VEGA = "1";
+  };
 
   system.stateVersion = "24.05";
 }

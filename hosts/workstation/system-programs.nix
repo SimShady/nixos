@@ -14,6 +14,12 @@
    })
     prismlauncher
     r2modman
+    # For Davinci Resolve
+    kitty
+    mesa-demos
+    vulkan-tools
+    clinfo
+    davinci-resolve
   ];
 
   programs.steam = {
