@@ -28,10 +28,13 @@
     openssl
     android-studio
     gcolor3
+    adoptopenjdk-icedtea-web
+    jdk
+    ipmiview
   ];
 
   environment.variables = {
-    # Only applies after restart
+    JAVA_HOME = "${pkgs.jdk}/lib/openjdk";
   };
 
   virtualisation.docker.enable = true;
@@ -43,6 +46,7 @@
   programs.ssh = {
     startAgent = true;
   };
+  services.gnome.gcr-ssh-agent.enable = false;
 
   programs.bash.shellAliases = {
     l = "ls -alh";
@@ -71,6 +75,16 @@
           tpmSupport = true;
         }).fd];
       };
+    };
+  };
+
+  programs.proxychains = {
+    enable = true;
+    proxies.snail = {
+      enable = true;
+      type = "socks5";
+      host = "127.0.0.1";
+      port = 12347;
     };
   };
 }
