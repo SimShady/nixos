@@ -8,7 +8,6 @@
     recommendedOptimisation = true;
     recommendedProxySettings = true;
     recommendedTlsSettings = true;
-    recommendedZstdSettings = true;
     clientMaxBodySize = lib.mkDefault "16M";
     appendHttpConfig = ''
       # avoid hitting the disk

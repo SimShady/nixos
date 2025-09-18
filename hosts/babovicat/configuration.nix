@@ -10,7 +10,7 @@
     ./services/node-exporter.nix
     ./services/prometheus.nix
     ./services/grafana.nix
-    ./services/conduwuit.nix
+    ./services/matrix-continuwuity.nix
     ./services/maubot.nix
     # ./services/mautrix-signal.nix
     ./web/babovic.nix

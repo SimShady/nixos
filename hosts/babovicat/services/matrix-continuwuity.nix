@@ -1,14 +1,14 @@
 { config, pkgs, ... }:
 
 let
-  cfg = config.services.conduwuit.settings;
+  cfg = config.services.matrix-continuwuity.settings;
   serverName = "babovic.at";
   matrixHost = "matrix.${serverName}";
-  conduwuitUrl = "http://[${builtins.head cfg.global.address}]:${
+  continuwuityUrl = "http://[${builtins.head cfg.global.address}]:${
     toString (builtins.head cfg.global.port)
   }";
 in {
-  services.conduwuit = {
+  services.matrix-continuwuity = {
     enable = true;
     settings.global = {
       server_name = serverName;
@@ -65,7 +65,7 @@ in {
       ];
       locations = {
           "/_matrix/" = {
-            proxyPass = conduwuitUrl;
+            proxyPass = continuwuityUrl;
             proxyWebsockets = true;
             extraConfig = ''
               proxy_set_header Host $host;
@@ -73,7 +73,7 @@ in {
               client_max_body_size 32M;
             '';
           };
-          "/.well-known/matrix/".proxyPass = conduwuitUrl;
+          "/.well-known/matrix/".proxyPass = continuwuityUrl;
           "/".return = "301 https://${serverName}";
         };
         extraConfig = ''
@@ -81,12 +81,12 @@ in {
           add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
 
           # https://spec.matrix.org/v1.13/client-server-api/#web-browser-clients
-          # Access-Control-Allow-Origin: * is added by conduwuit already
+          # Access-Control-Allow-Origin: * is added by continuwuity already
           add_header Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS" always;
           add_header Access-Control-Allow-Headers "X-Requested-With, Content-Type, Authorization" always;
         '';
       };
-    ${serverName}.locations."/.well-known/matrix/".proxyPass = conduwuitUrl;
+    ${serverName}.locations."/.well-known/matrix/".proxyPass = continuwuityUrl;
   };
 
   networking.firewall = {
