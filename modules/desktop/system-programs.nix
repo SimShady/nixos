@@ -19,6 +19,7 @@
         prisma.prisma
         hashicorp.terraform
         ms-vscode.cpptools-extension-pack
+        reditorsupport.r
       ];
     })
     postman
