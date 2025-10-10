@@ -12,7 +12,7 @@
     ./services/grafana.nix
     ./services/matrix-continuwuity.nix
     ./services/maubot.nix
-    # ./services/roundcube.nix
+    ./services/roundcube.nix
     # ./services/mautrix-signal.nix
     ./web/babovic.nix
     ./web/playitloud.nix
