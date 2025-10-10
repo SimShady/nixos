@@ -79,5 +79,21 @@
     "github.com" = {
       identityFile = "/home/simon/.ssh/id_github_private";
     };
+    "ponos" = {
+      user = "root";
+      hostname = "192.168.3.248";
+      proxyJump = "stargate.fstph.htu.tuwien.ac.at";
+      identityFile = "/home/simon/.ssh/id_rsa_fstph";
+    };
+    "snail" = {
+      user = "root";
+      hostname = "128.130.96.132";
+      identityFile = "/home/simon/.ssh/id_rsa_fstph";
+      dynamicForwards = [
+        {
+          port = 12347;
+        }
+      ];
+    };
   };
 }
