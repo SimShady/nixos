@@ -58,6 +58,7 @@
     "babovic.at" = {
       user = "simon";
       identityFile = "/home/simon/.ssh/id_hetzner_private";
+      # identityFile = "/home/simon/.ssh/id_github_private";
     };
     "deploybot.babovicat" = {
       user = "deploybot";
@@ -71,6 +72,25 @@
     };
     "github.com" = {
       identityFile = "/home/simon/.ssh/id_github_private";
+    };
+    "ponos" = {
+      user = "root";
+      hostname = "192.168.3.248";
+      proxyJump = "snail";
+      # identityFile = "/home/simon/.ssh/id_rsa_fstph";
+      extraOptions = {
+        PubkeyAuthentication = "no";
+      };
+    };
+    "snail" = {
+      user = "root";
+      hostname = "128.130.96.132";
+      identityFile = "/home/simon/.ssh/id_rsa_fstph";
+      dynamicForwards = [
+        {
+          port = 12347;
+        }
+      ];
     };
   };
 }
