@@ -12,6 +12,7 @@
     ./services/grafana.nix
     ./services/matrix-continuwuity.nix
     ./services/maubot.nix
+    # ./services/roundcube.nix
     # ./services/mautrix-signal.nix
     ./web/babovic.nix
     ./web/playitloud.nix
@@ -36,7 +37,7 @@
     home = "/home/simon";
     description = "Simon Babovic";
     extraGroups = ["wheel" "networkmanager" "docker"];
-    openssh.authorizedKeys.keys = [''ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDL2htIqQZr7zjGT/k357+sp7R4Bl2MNg0mkbGYHe4rWmPbHBU2WIGGqH7qZbmhjYBxnoXNO3I42hOiPonOf5O2ab58vogT7pmYqxor26la02cueZ34CtYcocpH8LCiyq9Ex5XJCUWpQ7FqLBML94/e+vpA3qMXIXkI8dk0/P439A6WpW6IFK/Ee2/+mpZjKzWcEvQK3ESuKx9/Igm/RnYBnKRlrPPQD/Bja47VVfFmeEbq1001ZyTSIGYE5uRls+Yb+HccNEXpm4l9VrZQu/VGc2WGguYaNZ7KpUignwDVhP3ldRNtOKMUOCwKmR8nJ+s9w6V0xWzIGjuaLwd/r/INHn8sdBiCK71HX1PngjkNkG51MHxoNnuNq2M3dmjozLOFt1xbAn7IECJF07QTEYnzOe1u7JTWJVfnVsc73LXYjMgD3bmb1EOu4Dj9ADt+eDkqgKoFusHvthdKiNtCSLFILZwV7/dedcRDZn7HffKhZp97jrxcY90RlfXC2hf3mF8='' ''ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDjeK5GyCXtErWAd4vgLhzK/u6UdN7GmAEhEW1DHFHyDehurw6Rf+qsPEDPczjbf2/5ZB+cu3p7qIxu+8TUO45Ut11XqYI18gbbkwE0soFmRKD0rACCSynwTqPnY+1H4F+/mfx9kT7A8/vQLZqVlgC5yipcWBOzF8OcFEmmYWjkjfU1LA48CEqLU/+G2oS8BhYQMq6dFRX2J6Dj89ovtEU0T18E9aKxdCeE0fQWZ8SGNQnFtbgzChfTksySVMlmXVWPGG/m+BQAhxCPJ4z+FfQmaCI+YXwYVJx0qul3cYefDAtMizFe2oIdpI59URYuOtKOVtD+27Gy1+l8Iq5PAUW8GmVoIY6KGkaJrGZeL1eVZ21RT+JHrAjz6l84c9ahAYiFhIOW7oLRFKmTejCI+DfFsHArhdxtfjYO0h7qsx8Kz1ep+iY8QVRgFKprcqN+aJLNb3xHiGoWTRvFJBgjIrzSm4TkUkJjegQ7+T0ngMfPkmr+6wp1vqYV4hyEFUJmQds='' ];
+    openssh.authorizedKeys.keys = [''ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDL2htIqQZr7zjGT/k357+sp7R4Bl2MNg0mkbGYHe4rWmPbHBU2WIGGqH7qZbmhjYBxnoXNO3I42hOiPonOf5O2ab58vogT7pmYqxor26la02cueZ34CtYcocpH8LCiyq9Ex5XJCUWpQ7FqLBML94/e+vpA3qMXIXkI8dk0/P439A6WpW6IFK/Ee2/+mpZjKzWcEvQK3ESuKx9/Igm/RnYBnKRlrPPQD/Bja47VVfFmeEbq1001ZyTSIGYE5uRls+Yb+HccNEXpm4l9VrZQu/VGc2WGguYaNZ7KpUignwDVhP3ldRNtOKMUOCwKmR8nJ+s9w6V0xWzIGjuaLwd/r/INHn8sdBiCK71HX1PngjkNkG51MHxoNnuNq2M3dmjozLOFt1xbAn7IECJF07QTEYnzOe1u7JTWJVfnVsc73LXYjMgD3bmb1EOu4Dj9ADt+eDkqgKoFusHvthdKiNtCSLFILZwV7/dedcRDZn7HffKhZp97jrxcY90RlfXC2hf3mF8='' ''ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDADlxD8+dzAXnSx0ZCzmvafEHLNHdM/MA8+g9rQN0SNAeEJX1xMEIUnbfhfExEKsd0/A9g59rsszKDSReoZEF5VTcrlW7uSxWfdcIYEeq/+/EdmO/kgrxpCRKcHAGouvDqdFUoG8JArTMMZs9+KNec9DS0kHgAqbbuELzFNxLds/hYuZmijXvSQK0YUf+rkGDC+se/rgWgbkGRK3qrChJzTodcK6FlCkX+pUDWsOOUsX8YoYhu7DDbvSCkNq/A3o9ZlD4xsSzQlQzzwy4822oBq0SWEpwREdfVIaYVOpNcsUUvLtVU/3D+OcZ3Q1s2w0XytOXwgJEpQjIfQ70tX3uAT0e+NgDDIzaA2gbZmNwEMCOB1QkHeE7Ir2CZmOgLBB7+JjF5hU1NNhg87ypdwiDqO1HnXaSpNlRisI5eZD1gHsSo5KyEaph3t1fmsJ1vVJj9ks5P8i1CMKrXRpabsDprZzTHBJEm6BVm0O1oPTxpafp4reNfAR9nRldYMr4Q4YM= simon@fedora'' ];
   };
   users.users.deploybot = {
     isNormalUser = true;
