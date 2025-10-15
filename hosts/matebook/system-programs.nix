@@ -12,5 +12,6 @@
       hashMode = "recursive";
     };
    })
+    prismlauncher
   ];
 }
