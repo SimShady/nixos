@@ -30,6 +30,10 @@
     };
   };
 
+  services.netbird = {
+    enable = true;
+  };
+
   programs.bash.shellAliases = {
     "tu-down" = "sudo systemctl stop openconnect-tuwien.service";
     "tu-up" = "sudo systemctl stop openconnect-tuwien-all.service && sudo systemctl start openconnect-tuwien.service";

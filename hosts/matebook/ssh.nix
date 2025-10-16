@@ -51,24 +51,18 @@
       hostname = "simonbabovic01.airlab";
     };
     "minecraft.babovic.at" = {
-      user = "root";
-      identityFile = "/home/simon/.ssh/id_hetzner_private";
+      user = "simon";
+      identityFile = "/home/simon/.ssh/id_airlab";
       hostname = "minecraft.babovic.at";
     };
     "babovic.at" = {
       user = "simon";
       identityFile = "/home/simon/.ssh/id_hetzner_private";
-      # identityFile = "/home/simon/.ssh/id_github_private";
     };
     "deploybot.babovicat" = {
       user = "deploybot";
       identityFile = "/home/simon/.ssh/id_hetzner_deploybot";
       hostname = "babovic.at";
-    };
-    "simon.minecraft" = {
-      user = "simon";
-      identityFile = "/home/simon/.ssh/id_hetzner_private";
-      hostname = "minecraft.babovic.at";
     };
     "github.com" = {
       identityFile = "/home/simon/.ssh/id_github_private";

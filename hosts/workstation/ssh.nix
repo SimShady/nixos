@@ -63,8 +63,8 @@
       hostname = "babovic.at";
     };
     "minecraft.babovic.at" = {
-      user = "root";
-      identityFile = "/home/simon/.ssh/id_hetzner_private";
+      user = "simon";
+      identityFile = "/home/simon/.ssh/id_airlab";
       hostname = "minecraft.babovic.at";
     };
     "nan-development.com" = {
