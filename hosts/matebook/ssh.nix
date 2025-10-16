@@ -52,12 +52,23 @@
     };
     "minecraft.babovic.at" = {
       user = "simon";
-      identityFile = "/home/simon/.ssh/id_airlab";
-      hostname = "minecraft.babovic.at";
+      identityFile = "/home/simon/.ssh/id_rsa_airlab";
+      hostname = "172.18.2.104";
     };
     "babovic.at" = {
       user = "simon";
       identityFile = "/home/simon/.ssh/id_hetzner_private";
+    };
+    "homebabo.at" = {
+      user = "simon";
+      hostname = "192.168.178.100";
+      identityFile = "/home/simon/.ssh/id_homebabo";
+    };
+    "boot.homebabo.at" = {
+      user = "root";
+      port = 2222;
+      hostname = "192.168.178.100";
+      identityFile = "/home/simon/.ssh/id_homebabo";
     };
     "deploybot.babovicat" = {
       user = "deploybot";

@@ -33,6 +33,7 @@
     adoptopenjdk-icedtea-web
     jdk
     ipmiview
+    rstudio
   ];
 
   environment.variables = {

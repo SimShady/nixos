@@ -8,5 +8,5 @@ sudo nixos-rebuild switch --flake .#matebook
 
 ## Apply configuration for babovic.at
 ```
-sudo nix run .#apps.nixinate.babovicat
+nix run .#apps.nixinate.babovicat
 ```
