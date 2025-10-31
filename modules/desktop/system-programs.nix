@@ -82,6 +82,7 @@
       # };
     };
   };
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
   programs.proxychains = {
     enable = true;

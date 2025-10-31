@@ -39,6 +39,7 @@ in {
 
   config = mkIf cfg.enable {
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
+    nix.settings.trusted-users = [ "simon" ];
     users.mutableUsers = false;
     services.printing.enable = true;
     networking.networkmanager.enable = true;
