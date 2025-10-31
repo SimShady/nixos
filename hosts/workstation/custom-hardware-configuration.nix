@@ -8,7 +8,6 @@
       libvdpau-va-gl
       vulkan-loader
       vulkan-validation-layers
-      amdvlk
       mesa.opencl
     ];
   };
