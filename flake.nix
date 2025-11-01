@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi/main";
 
     nixinate = {
       url = "github:matthewcroughan/nixinate";
@@ -26,16 +25,7 @@
     };
   };
 
-  nixConfig = {
-    extra-substituters = [
-      "https://nixos-raspberrypi.cachix.org"
-    ];
-    extra-trusted-public-keys = [
-      "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI="
-    ];
-  };
-
-  outputs = { self, nixpkgs, nixinate, nixos-raspberrypi, ... }@inputs: {
+  outputs = { self, nixpkgs, nixinate, ... }@inputs: {
     apps = nixinate.nixinate.x86_64-linux self;
     nixosConfigurations.workstation = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -101,39 +91,6 @@
                 host = "babovic.at";
                 sshUser = "simon";
                 buildOn = "local";
-                substituteOnTarget = true;
-                hermetic = false;
-              };
-            };
-            sops.age = {
-              sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
-              keyFile = "/var/lib/sops-nix/key.txt";
-              generateKey = true;
-            };
-          }
-        )
-      ];
-    };
-    nixosConfigurations.stargate = nixos-raspberrypi.lib.nixosSystem {
-      specialArgs = inputs;
-      modules = [
-        { nixpkgs.overlays = [ (_: super: import ./pkgs super) ]; }
-        inputs.sops-nix.nixosModules.sops
-        ({...}: {
-          imports = with nixos-raspberrypi.nixosModules; [
-            raspberry-pi-5.base
-            raspberry-pi-5.bluetooth
-          ];
-        })
-        ./hosts/stargate/configuration.nix
-        (
-          { config, ... }:{
-            _module.args = {
-              inherit (config.sops) secrets;
-              nixinate = {
-                host = "stargate.homebabo.at";
-                sshUser = "simon";
-                buildOn = "remote";
                 substituteOnTarget = true;
                 hermetic = false;
               };
