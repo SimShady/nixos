@@ -70,6 +70,11 @@
       hostname = "192.168.178.100";
       identityFile = "/home/simon/.ssh/id_homebabo";
     };
+    "stargate.homebabo.at" = {
+      user = "simon";
+      hostname = "192.168.178.129";
+      identityFile = "/home/simon/.ssh/id_homebabo";
+    };
     "deploybot.babovicat" = {
       user = "deploybot";
       identityFile = "/home/simon/.ssh/id_hetzner_deploybot";

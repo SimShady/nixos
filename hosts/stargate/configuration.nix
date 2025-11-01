@@ -1,17 +1,12 @@
 { config, lib, pkgs, ... }:
-
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+  ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings.trusted-users = [ "@wheel" ];
 
-
-  boot.loader.grub.enable = false;
-  boot.loader.generic-extlinux-compatible.enable = true;
   networking.networkmanager.enable = true;
 
   networking.hostName = "stargate";
@@ -44,5 +39,5 @@
     options = "--delete-older-than 14d";
   };
 
-  system.stateVersion = "25.11";
+  system.stateVersion = "25.05";
 }
