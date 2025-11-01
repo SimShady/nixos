@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi/main";
 
     nixinate = {
       url = "github:matthewcroughan/nixinate";
@@ -21,11 +22,6 @@
 
     playitloud = {
       url = "git+ssh://git@github.com/SimShady/playitloud-frontend.git?shallow=1";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nixos-raspberrypi = {
-      url = "github:nvmd/nixos-raspberrypi/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -129,7 +125,7 @@
             raspberry-pi-5.bluetooth
           ];
         })
-        (import(./hosts/stargate/configuration.nix))
+        ./hosts/stargate/configuration.nix
         (
           { config, ... }:{
             _module.args = {
