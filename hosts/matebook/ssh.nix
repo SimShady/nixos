@@ -61,18 +61,16 @@
     };
     "homebabo.at" = {
       user = "simon";
-      hostname = "192.168.178.100";
       identityFile = "/home/simon/.ssh/id_homebabo";
     };
     "boot.homebabo.at" = {
       user = "root";
       port = 2222;
-      hostname = "192.168.178.100";
+      hostname = "homebabo.at";
       identityFile = "/home/simon/.ssh/id_homebabo";
     };
     "stargate.homebabo.at" = {
       user = "simon";
-      hostname = "192.168.178.129";
       identityFile = "/home/simon/.ssh/id_homebabo";
     };
     "deploybot.babovicat" = {
