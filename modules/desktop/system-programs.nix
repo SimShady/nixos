@@ -35,7 +35,6 @@
     ipmiview
     rstudio
     openscad
-    # bambu-studio
   ];
 
   environment.variables = {
