@@ -21,6 +21,7 @@
         ms-vscode.cpptools-extension-pack
         reditorsupport.r
         reditorsupport.r-syntax
+        redhat.vscode-xml
       ];
     })
     postman

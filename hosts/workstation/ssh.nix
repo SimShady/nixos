@@ -67,11 +67,11 @@
       hostname = "homebabo.at";
       identityFile = "/home/simon/.ssh/id_homebabo";
     };
-    "vpn.homebabo.at" = {
+    "vpn.babovic.at" = {
       user = "simon";
       identityFile = "/home/simon/.ssh/id_hetzner_private";
     };
-    "stargate.homebabo.at" = {
+    "stargate.homebabo.at 192.168.178.2" = {
       user = "simon";
       identityFile = "/home/simon/.ssh/id_homebabo";
     };

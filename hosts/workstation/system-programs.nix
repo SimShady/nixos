@@ -14,6 +14,7 @@
    })
     prismlauncher
     r2modman
+    lutris
     # For Davinci Resolve
     kitty
     mesa-demos

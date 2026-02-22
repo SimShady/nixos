@@ -69,7 +69,7 @@
       hostname = "homebabo.at";
       identityFile = "/home/simon/.ssh/id_homebabo";
     };
-    "vpn.homebabo.at" = {
+    "vpn.babovic.at" = {
       user = "simon";
       identityFile = "/home/simon/.ssh/id_hetzner_private";
     };
