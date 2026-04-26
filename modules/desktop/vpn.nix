@@ -1,33 +1,15 @@
-{ pkgs, config, secrets, ... }:{
+{ pkgs, config, secrets, ... }:
+let 
+  vpnuser = "e12002084@student.tuwien.ac.at";
+  vpnprotocol = "anyconnect";
+  vpngateway = "vpn.tuwien.ac.at";
+in {
+  environment.systemPackages = with pkgs; [
+    openconnect
+  ];
   sops.secrets."tuwien/networkpass" = {
     sopsFile = ../../secrets/personal.yaml;
     restartUnits = [ "network.target" ];
-  };
-
-  networking.openconnect = {
-    package = pkgs.openconnect;
-    interfaces = {
-      tuwien = {
-        autoStart = false;
-        gateway = "vpn.tuwien.ac.at";
-        passwordFile = secrets."tuwien/networkpass".path;
-        protocol = "anyconnect";
-        user = "e12002084@student.tuwien.ac.at";
-        extraOptions = {
-          authgroup = "1_TU_getunnelt";
-        };
-      };
-      tuwien-all = {
-        autoStart = false;
-        gateway = "vpn.tuwien.ac.at";
-        passwordFile = secrets."tuwien/networkpass".path;
-        protocol = "anyconnect";
-        user = "e12002084@student.tuwien.ac.at";
-        extraOptions = {
-          authgroup = "2_Alles_getunnelt";
-        };
-      };
-    };
   };
 
   services.netbird.clients.default = {
@@ -38,10 +20,9 @@
     autoStart = false;
   };
 
+  # TODO: try to find out how to automate vpn network password
   programs.bash.shellAliases = {
-    "tu-down" = "sudo systemctl stop openconnect-tuwien.service";
-    "tu-up" = "sudo systemctl stop openconnect-tuwien-all.service && sudo systemctl start openconnect-tuwien.service";
-    "tuall-down" = "sudo systemctl stop openconnect-tuwien-all.service";
-    "tuall-up" = "sudo systemctl stop openconnect-tuwien.service && sudo systemctl start openconnect-tuwien-all.service";
+    "tu-up" = "sudo openconnect --protocol=${vpnprotocol} --user=${vpnuser} --authgroup=1_TU_getunnelt ${vpngateway}";
+    "tuall-up" = "sudo openconnect --protocol=${vpnprotocol} --user=${vpnuser} --authgroup=2_Alles_getunnelt ${vpngateway}";
   };
 }
