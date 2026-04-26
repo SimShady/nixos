@@ -12,7 +12,8 @@
     enable = true;
     package = pkgs.gitFull;
     lfs.enable = true;
-    extraConfig = {
+    signing.format = "openpgp";
+    settings = {
       user.name = "Simon Babovic";
       user.email = "simon@babovic.at";
       format.signoff = true;

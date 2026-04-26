@@ -29,12 +29,10 @@
     gcc_multi
     gnumake
     openssl
-    android-studio
     gcolor3
     adoptopenjdk-icedtea-web
     jdk
     ipmiview
-    rstudio
     openscad
   ];
 

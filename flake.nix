@@ -31,7 +31,14 @@
       system = "x86_64-linux";
       specialArgs = {inherit inputs;};
       modules = [
-        { nixpkgs.overlays = [ (_: super: import ./pkgs super) ]; }
+        { nixpkgs.overlays = [
+          (_: super: import ./pkgs super)
+          (final: prev: {
+            openldap = prev.openldap.overrideAttrs (_: {
+              doCheck = false;
+            });
+          })
+        ];}
         (import ./hosts/workstation/configuration.nix)
         inputs.sops-nix.nixosModules.sops
         inputs.home-manager.nixosModules.default
@@ -54,7 +61,14 @@
       system = "x86_64-linux";
       specialArgs = {inherit inputs;};
       modules = [
-        { nixpkgs.overlays = [ (_: super: import ./pkgs super) ]; }
+        { nixpkgs.overlays = [
+          (_: super: import ./pkgs super)
+          (final: prev: {
+            openldap = prev.openldap.overrideAttrs (_: {
+              doCheck = false;
+            });
+          })
+        ];}
         (import ./hosts/matebook/configuration.nix)
         inputs.sops-nix.nixosModules.sops
         inputs.home-manager.nixosModules.default

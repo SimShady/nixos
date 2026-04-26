@@ -1,5 +1,6 @@
 { pkgs, ... }:{
   programs.ssh.enable = true;
+  programs.ssh.enableDefaultConfig = false;
   programs.ssh.matchBlocks = {
     "gitlab.tuwien.ac.at" = {
       identityFile = "/home/simon/.ssh/id_rsa_fstph";
