@@ -18,10 +18,12 @@
         grapecity.gc-excelviewer
         prisma.prisma
         hashicorp.terraform
+        ms-vscode.cpptools
         ms-vscode.cpptools-extension-pack
         reditorsupport.r
         reditorsupport.r-syntax
         redhat.vscode-xml
+        oracle.oracle-java
       ];
     })
     postman
@@ -34,6 +36,7 @@
     jdk
     ipmiview
     openscad
+    gdb
   ];
 
   environment.variables = {
