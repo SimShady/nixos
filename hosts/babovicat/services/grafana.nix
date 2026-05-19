@@ -9,6 +9,7 @@
         domain = "grafana.babovic.at";
         root_url = "https://grafana.babovic.at";
       };
+      security.secret_key = "SW2YcwTIb9zpOOhoPsMm";
     };
   };
   services.nginx.virtualHosts."grafana.babovic.at" = {

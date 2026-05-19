@@ -4,5 +4,5 @@
 }:
 
 {
-  conduwuit = callPackage ./conduwuit { };
+  # conduwuit = callPackage ./conduwuit { };
 }
