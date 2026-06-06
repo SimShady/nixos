@@ -30,6 +30,10 @@
   security.sudo.enable = true;
   security.sudo.wheelNeedsPassword = false;
 
+  networking.useDHCP = false;
+  systemd.network.enable = true;
+
+  users.users.root.hashedPassword = "$y$j9T$QoZPT7ZvLGI7SqygJUT37/$YhqI/EUh0D.dUm09o4n4PJ1JvcYA/IxB0ai.k47aVOA";
   users.groups.deploybots = {};
 
   users.users.simon = {
