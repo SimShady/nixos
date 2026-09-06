@@ -1,0 +1,109 @@
+{ pkgs, ... }:{
+  programs.ssh.enable = true;
+  programs.ssh.enableDefaultConfig = false;
+  programs.ssh.matchBlocks = {
+    "gitlab.tuwien.ac.at" = {
+      identityFile = "/home/simon/.ssh/id_rsa_fstph";
+    };
+    "codeberg.org" = {
+      identityFile = "/home/simon/.ssh/id_codeberg";
+    };
+    "*.stammtisch.wien" = {
+      user = "simon";
+      identityFile = "/home/simon/.ssh/id_stammtisch";
+    };
+    "server4.physprak.tuwien.ac.at" = {
+      hostname = "server4.physprak.tuwien.ac.at";
+      user = "babovic";
+      extraOptions = {
+        PubkeyAuthentication = "no";
+      };
+    };
+    "stargate.fstph.htu.tuwien.ac.at" = {
+      dynamicForwards = [
+        {
+          port = 12346;
+        }
+      ];
+    };
+    "bluefire.fstph.htu.tuwien.ac.at" = {
+      dynamicForwards = [
+        {
+          port = 12345;
+        }
+      ];
+    };
+    "*.fstph.htu.tuwien.ac.at !cerberos.fstph.htu.tuwien.ac.at !forumalt.fstph.htu.tuwien.ac.at" = {
+      user = "admin-simon";
+      identityFile = "/home/simon/.ssh/id_rsa_fstph";
+    };
+    "*.fstph.htu.tuwien.ac.at !stargate.fstph.htu.tuwien.ac.at !bluefire.fstph.htu.tuwien.ac.at" = {
+      proxyJump = "stargate.fstph.htu.tuwien.ac.at";
+    };
+    "cerberos.fstph.htu.tuwien.ac.at" = {
+      user = "root";
+      extraOptions = {
+        PubkeyAuthentication = "no";
+      };
+    };
+    "simon.airlab" = {
+      user = "simon";
+      identityFile = "/home/simon/.ssh/id_rsa_airlab";
+      hostname = "simonbabovic01.airlab";
+    };
+    "minecraft.babovic.at" = {
+      user = "simon";
+      identityFile = "/home/simon/.ssh/id_rsa_airlab";
+      hostname = "172.18.2.104";
+    };
+    "babovic.at" = {
+      user = "simon";
+      identityFile = "/home/simon/.ssh/id_hetzner_private";
+    };
+    "homebabo.at" = {
+      user = "simon";
+      identityFile = "/home/simon/.ssh/id_homebabo";
+    };
+    "boot.homebabo.at" = {
+      user = "root";
+      port = 2222;
+      hostname = "homebabo.at";
+      identityFile = "/home/simon/.ssh/id_homebabo";
+    };
+    "vpn.babovic.at" = {
+      user = "simon";
+      identityFile = "/home/simon/.ssh/id_hetzner_private";
+    };
+    "stargate.homebabo.at" = {
+      user = "simon";
+      identityFile = "/home/simon/.ssh/id_homebabo";
+    };
+    "deploybot.babovicat" = {
+      user = "deploybot";
+      identityFile = "/home/simon/.ssh/id_hetzner_deploybot";
+      hostname = "babovic.at";
+    };
+    "github.com" = {
+      identityFile = "/home/simon/.ssh/id_github_private";
+    };
+    "ponos" = {
+      user = "root";
+      hostname = "192.168.3.248";
+      proxyJump = "snail";
+      # identityFile = "/home/simon/.ssh/id_rsa_fstph";
+      extraOptions = {
+        PubkeyAuthentication = "no";
+      };
+    };
+    "snail" = {
+      user = "root";
+      hostname = "128.130.96.132";
+      identityFile = "/home/simon/.ssh/id_rsa_fstph";
+      dynamicForwards = [
+        {
+          port = 12347;
+        }
+      ];
+    };
+  };
+}

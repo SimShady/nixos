@@ -87,6 +87,36 @@
         )
       ];
     };
+    nixosConfigurations.framework = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = {inherit inputs;};
+      modules = [
+        { nixpkgs.overlays = [
+          (_: super: import ./pkgs super)
+          (final: prev: {
+            openldap = prev.openldap.overrideAttrs (_: {
+              doCheck = false;
+            });
+          })
+        ];}
+        (import ./hosts/framework/configuration.nix)
+        inputs.sops-nix.nixosModules.sops
+        inputs.home-manager.nixosModules.default
+        (
+          { config, ... }:{
+            _module.args = {
+              inherit (config.sops) secrets;
+              private-pkgs = {
+                playitloud = inputs.playitloud.packages.x86_64-linux.playitloud;
+              };
+            };
+            sops.age = {
+              keyFile = "/var/lib/sops-nix/key.txt";
+            };
+          }
+        )
+      ];
+    };
     nixosConfigurations.babovicat = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {inherit inputs;};
