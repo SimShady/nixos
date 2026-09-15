@@ -8,7 +8,7 @@
 
   simon.desktop = {
     enable = true;
-    hostName = "matebook";
+    hostName = "framework";
     home-manager = {
       customHomePath = ./home.nix;
       extraSpecialArgs = { inherit inputs; };
