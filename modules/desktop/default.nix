@@ -54,7 +54,7 @@ in {
     users.users.simon = {
       isNormalUser = true;
       description = "Simon Babovic";
-      extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" ] ++ cfg.additionalGroups;
+      extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" "dialout" ] ++ cfg.additionalGroups;
       hashedPassword = cfg.hashedPassword;
     };
 

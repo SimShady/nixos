@@ -20,6 +20,7 @@
         hashicorp.terraform
         ms-vscode.cpptools
         ms-vscode.cpptools-extension-pack
+        ms-vscode.cmake-tools
         reditorsupport.r
         reditorsupport.r-syntax
         redhat.vscode-xml
