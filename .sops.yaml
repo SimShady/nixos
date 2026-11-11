@@ -2,6 +2,7 @@
 keys:
   - &simon_matebook age12tw3rad9pzs6062vjhv4crxg88wejf9f8sxp76d64tq999dye4xqw7n75s
   - &simon_workstation age10pr6dthvt0kfa90z86yp2zc35q2twt348ge69q7kvuze2k8fc9zqxlednh
+  - &simon_framework age19h7yhacsjjtrudfddnuxjlqx7sud3wp5yxha69rums66nyu563esrqpsak
   - &machine_matebook age1hat6t9he3f2ggpur33yn5s24th4la3a50z58qw5yslleavn7gcxq08vhj2
   - &machine_workstation age1sf5wwndxfvevdxs8lzhhqvh4v9p8g9vxywdf63wm3evusv7frvjsfuq7t3
   # generate with: `ssh <machine> 'sudo cat /etc/ssh/ssh_host_ed25519_key.pub' | nix run nixpkgs#ssh-to-age`
@@ -15,9 +16,11 @@ creation_rules:
           - *machine_workstation
           - *simon_matebook
           - *simon_workstation
+          - *simon_framework
   - path_regex: secrets/babovicat.yaml
     key_groups:
       - age:
           - *machine_babovicat
           - *simon_matebook
           - *simon_workstation
+          - *simon_framework

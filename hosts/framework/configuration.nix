@@ -3,7 +3,6 @@
     [
       ./hardware-configuration.nix
       ./system-programs.nix
-      ./bluetooth.nix
       ../../modules/desktop/default.nix
     ];
 
