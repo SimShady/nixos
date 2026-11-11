@@ -5,6 +5,7 @@ keys:
   - &simon_framework age19h7yhacsjjtrudfddnuxjlqx7sud3wp5yxha69rums66nyu563esrqpsak
   - &machine_matebook age1hat6t9he3f2ggpur33yn5s24th4la3a50z58qw5yslleavn7gcxq08vhj2
   - &machine_workstation age1sf5wwndxfvevdxs8lzhhqvh4v9p8g9vxywdf63wm3evusv7frvjsfuq7t3
+  - &machine_framework age126csyggs3l67648p28td2tqxsmresgwzkk5qtjxyhsgx6hwdxu2sr449c0
   # generate with: `ssh <machine> 'sudo cat /etc/ssh/ssh_host_ed25519_key.pub' | nix run nixpkgs#ssh-to-age`
   - &machine_babovicat age1jkcml203mt4w2u8p2ntktlvuncvdx8vcmxlkwun4nra0c0s6n95sr8gzff
 
@@ -14,6 +15,7 @@ creation_rules:
       - age:
           - *machine_matebook
           - *machine_workstation
+          - *machine_framework 
           - *simon_matebook
           - *simon_workstation
           - *simon_framework
